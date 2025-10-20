@@ -1,5 +1,5 @@
 //
-// Created by Manju Muralidharan on 10/19/25.
+// Created by Ethan Brothers on 10/20/25.
 //
 
 #ifndef HEAP_H
