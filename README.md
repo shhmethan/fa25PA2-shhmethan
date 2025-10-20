@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CipherText: Variable-Bit (Frequency-Based) Encoding
 
 ## Submission Details
@@ -7,9 +8,9 @@ Your repository should contain the three required files: `main.cpp`, `heap.h`, a
 
 ### Repository Requirements
 
-- The repository **must be public** so it can be accessed for grading.  
-- Include a clear commit history showing your progress.  
-- You must have a **minimum of five commits** spread over at least **two weeks**. Commits should reflect incremental work such as implementing heap operations, debugging traversal, or updating documentation.  
+- The repository **must be public** so it can be accessed for grading.
+- Include a clear commit history showing your progress.
+- You must have a **minimum of five commits** spread over at least **two weeks**. Commits should reflect incremental work such as implementing heap operations, debugging traversal, or updating documentation.
 - Do not upload compiled binaries or object files.
 
 ### Canvas Submission
@@ -17,10 +18,10 @@ Your repository should contain the three required files: `main.cpp`, `heap.h`, a
 A public **template repository** has been provided for you to fork and begin your work:  
 **https://github.com/profmanjupriya/fa25PA2**
 
-1. Fork the template repository to your own GitHub account.  
-2. Complete your work within your forked repository, ensuring all three files (`main.cpp`, `heap.h`, and `input.txt`) are included.  
-3. Maintain a clear commit history with a minimum of five commits over two weeks.  
-4. Make sure your repository remains public.  
+1. Fork the template repository to your own GitHub account.
+2. Complete your work within your forked repository, ensuring all three files (`main.cpp`, `heap.h`, and `input.txt`) are included.
+3. Maintain a clear commit history with a minimum of five commits over two weeks.
+4. Make sure your repository remains public.
 5. Once finished, submit the **URL** of your public repository in the Canvas text box.
 
 ---
@@ -31,10 +32,10 @@ An intercepted text has arrived in your system. As a newly appointed **Cybersecu
 
 You will:
 
-- Read a text file and analyze how often each character appears.  
-- Build a **frequency-ordered min heap** using arrays to prioritize the most common symbols.  
-- Combine symbols into an encoding structure that produces **variable-length bit codes**.  
-- Use an **iterative traversal** with a stack to assign these bit sequences.  
+- Read a text file and analyze how often each character appears.
+- Build a **frequency-ordered min heap** using arrays to prioritize the most common symbols.
+- Combine symbols into an encoding structure that produces **variable-length bit codes**.
+- Use an **iterative traversal** with a stack to assign these bit sequences.
 - Print the resulting code table and the encoded cipher message.
 
 This assignment brings together array data structures, heap operations, and iterative traversal logic—all under the applied context of secure text encoding.
@@ -43,9 +44,9 @@ This assignment brings together array data structures, heap operations, and iter
 
 ## Learning Goals
 
-- Implement an **array-based min heap** for organizing frequency data.  
-- Apply a **stack** for iterative traversal without recursion.  
-- Understand how greedy strategies lead to efficient encodings.  
+- Implement an **array-based min heap** for organizing frequency data.
+- Apply a **stack** for iterative traversal without recursion.
+- Understand how greedy strategies lead to efficient encodings.
 - Practice clean modular design with multiple source files.
 
 ---
@@ -76,20 +77,20 @@ Count how many times each lowercase letter appears.
 Store these letters and their frequencies in a **min heap**, where the smallest weights rise to the top.
 
 - Initial heap (by frequency): `[1(b), 2(n), 3(a)]`
-- Remove the two smallest values: `1(b)` and `2(n)`.  
-- Combine them into a new parent node with weight `3` (`1 + 2 = 3`).  
+- Remove the two smallest values: `1(b)` and `2(n)`.
+- Combine them into a new parent node with weight `3` (`1 + 2 = 3`).
 - Insert this new node back into the heap.
 
 Now the heap contains: `[3(a), 3(parent)]`.
 
-- Remove both `3` values.  
-- Combine them into a final parent with weight `6`.  
+- Remove both `3` values.
+- Combine them into a final parent with weight `6`.
 - Insert that node back. Only one node remains—the **root** of your encoding structure.
 
 **Step 3: Variable Bit Assignment**  
 Traverse the structure:
 
-- Moving **left** adds a `0`.  
+- Moving **left** adds a `0`.
 - Moving **right** adds a `1`.
 
 | Character | Code |
@@ -132,10 +133,10 @@ Do not add additional files.
 
 ## Constraints and Tools
 
-- The min heap must be implemented manually using arrays.  
-- Allowed headers: `<iostream>`, `<fstream>`, `<stack>`, `<string>`.  
-- `std::stack` may be used for traversal. Other STL containers are **not allowed**.  
-- Recursion is not allowed.  
+- The min heap must be implemented manually using arrays.
+- Allowed headers: `<iostream>`, `<fstream>`, `<stack>`, `<string>`.
+- `std::stack` may be used for traversal. Other STL containers are **not allowed**.
+- Recursion is not allowed.
 - Compile and run with:
 
 ```bash
@@ -157,18 +158,18 @@ g++ -std=c++17 main.cpp -o encoder
 
 ### 2) `heap.h`
 
-**Purpose:** Build the **array-based min heap** that will manage symbol frequencies.  
+**Purpose:** Build the **array-based min heap** that will manage symbol frequencies.
 
 **What’s given:**  
 A `MinHeap` structure with `data[]`, `size`, and placeholder methods `push`, `pop`, `upheap`, and `downheap`.
 
-**What you do:**  
-- Complete the four heap methods to maintain proper ordering by weight.  
-- Remember, the heap stores **indices** of nodes, not weights themselves.  
+**What you do:**
+- Complete the four heap methods to maintain proper ordering by weight.
+- Remember, the heap stores **indices** of nodes, not weights themselves.
 - Use the global array `weightArr[]` for comparisons.
 
-**Tips:**  
-- Parent: `(i - 1) / 2`, children: `2*i + 1`, `2*i + 2`.  
+**Tips:**
+- Parent: `(i - 1) / 2`, children: `2*i + 1`, `2*i + 2`.
 - Use `upheap` when inserting and `downheap` after removal.
 
 ---
@@ -178,9 +179,9 @@ A `MinHeap` structure with `data[]`, `size`, and placeholder methods `push`, `po
 **Purpose:** Coordinate reading, building, and encoding.
 
 **What’s given:**
-- The file already reads `input.txt` and counts frequencies for lowercase letters.  
-- It normalizes uppercase letters to lowercase and stores counts in `freq[26]`.  
-- The function `createLeafNodes` is provided and demonstrates how characters with nonzero frequency are converted into nodes by initializing global arrays (`charArr[]`, `weightArr[]`, `leftArr[]`, `rightArr[]`).  
+- The file already reads `input.txt` and counts frequencies for lowercase letters.
+- It normalizes uppercase letters to lowercase and stores counts in `freq[26]`.
+- The function `createLeafNodes` is provided and demonstrates how characters with nonzero frequency are converted into nodes by initializing global arrays (`charArr[]`, `weightArr[]`, `leftArr[]`, `rightArr[]`).
 - The main function calls each step in order, so students can follow the logical flow from file reading to encoding.
 
 **What you will implement:**
@@ -191,9 +192,9 @@ A `MinHeap` structure with `data[]`, `size`, and placeholder methods `push`, `po
   Perform an **iterative traversal** to assign binary bit strings to each character. This function will need a **stack** to keep track of nodes and partial paths as you move through the structure. Assign shorter bit codes to more frequent letters and longer codes to less frequent ones.
 
 - **`encodeMessage(const string& filename, string codes[])`**  
-  Reopen the same input file, convert characters to lowercase, and print two sections:  
-  1. The code table (`Character : Code`).  
-  2. The encoded message, which is the sequence of bits corresponding to the original file’s text.
+  Reopen the same input file, convert characters to lowercase, and print two sections:
+    1. The code table (`Character : Code`).
+    2. The encoded message, which is the sequence of bits corresponding to the original file’s text.
 
 These functions complete the encoding pipeline after the file is read and leaf nodes are created.
 
@@ -201,10 +202,10 @@ These functions complete the encoding pipeline after the file is read and leaf n
 
 ## Execution Flow
 
-1. Read the file and build the frequency table.  
-2. Create leaf nodes in parallel arrays.  
-3. Use the heap to construct the encoding structure.  
-4. Traverse iteratively (using a stack) to assign bit codes.  
+1. Read the file and build the frequency table.
+2. Create leaf nodes in parallel arrays.
+3. Use the heap to construct the encoding structure.
+4. Traverse iteratively (using a stack) to assign bit codes.
 5. Print the results.
 
 ---
@@ -240,3 +241,6 @@ Encoded message:
 Think of yourself as designing a basic ciphering algorithm.  
 The more frequent a symbol, the shorter its binary key.  
 Efficient encoders like this are the backbone of secure and compressed data transfer systems.
+=======
+# fa25PA2-shhmethan
+>>>>>>> 92fb44d5896053a0d084288f4a6a98868b47172a
