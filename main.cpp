@@ -27,7 +27,7 @@ int main() {
     int freq[26] = {0};
 
     // Step 1: Read file and count letter frequencies
-    buildFrequencyTable(freq, "input.txt");
+    buildFrequencyTable(freq, "../input.txt");
 
     // Step 2: Create leaf nodes for each character with nonzero frequency
     int nextFree = createLeafNodes(freq);
