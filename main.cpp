@@ -34,6 +34,7 @@ int main() {
 
     // Step 3: Build encoding tree using your heap
     int root = buildEncodingTree(nextFree);
+    cout << "Root: " << root << " | Total weight: " << weightArr[root] << "\n";
 
     // Step 4: Generate binary codes using an STL stack
     string codes[26];
